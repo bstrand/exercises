@@ -1,6 +1,7 @@
 # https://oj.leetcode.com/problems/valid-parentheses/
 
 import unittest
+from collections import deque
 
 class Solution:
     # @return a boolean
@@ -21,7 +22,7 @@ class Solution:
     #     return not next_close
 
     def isValid(self, s):
-        paren_stack = []
+        paren_stack = deque()
         for c in s:
             #print "<-- %c" % c
             if not paren_stack:
