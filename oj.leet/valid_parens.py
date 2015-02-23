@@ -8,18 +8,17 @@ class Solution:
     closers = {v: k for k, v in openers.items()}
     
     def isValid(self, s):
-        parens = list(s)
         next_close = []
-        for tok in parens:
-            #print "t: %s" % t
-            if tok in self.openers.keys():
-                next_close.append(self.openers[tok])
-            elif tok in self.closers.keys():
-                if not next_close or next_close.pop() != tok:
+        for c in s:
+            #print "c: %c" % c
+            if c in self.openers.keys():
+                next_close.append(self.openers[c])
+            elif c in self.closers.keys():
+                if not next_close or next_close.pop() != c:
                     #print "INVALID"
                     return False
         #print "next_close len = %d --> %r" % (len(next_close), len(next_close) == 0)
-        return len(next_close) == 0
+        return not next_close
 
 class TestSolution(unittest.TestCase):
     def test_one_of_each(self):
