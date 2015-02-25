@@ -8,14 +8,14 @@ class Solution:
       return self.isPalindromeNumeric(x)
 
     def isPalindromeNumeric(self, x):
-      print "\n--------------\nx:{}\n".format(x)
+      # print "\n--------------\nx:{}\n".format(x)
       i = 0
       if(x<0 or (x % 10 == 0 and x != 0)):
         return False
       while (i < x):
         i = i * 10 + x % 10
         x = x / 10
-        print "i: {0: >6}\t\tx: {1: >6}\t\ti/10: {2: >6}".format(i, x, i/10)
+        # print "i: {0: >6}\t\tx: {1: >6}\t\ti/10: {2: >6}".format(i, x, i/10)
       return (i == x or i/10 == x)
 
     def isPalindromeAsStr(self, x):
