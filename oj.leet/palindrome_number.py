@@ -4,6 +4,9 @@ import unittest
 
 class Solution:
     # @return a boolean
+    def isPalindrome(self, x):
+      return self.isPalindromeAsStr(x)
+
     def isPalindromeConcise(self, x):
       i = 0
       if(x<0 or (x % 10 == 0 and x != 0)):
@@ -13,7 +16,7 @@ class Solution:
         x = x / 10
       return (i == x or i/10 == x)
 
-    def isPalindrome(self, x):
+    def isPalindromeAsStr(self, x):
       # print "-------------------------"
       if x < 0:
         return False
@@ -28,7 +31,7 @@ class Solution:
       if not l or l == 1:
         return True
       if x[0] ==  x[-1]:
-        return self.isPalindromeStr(x[1:-1])
+        return self.isPalindromeStrRec(x[1:-1])
       else:
         return False
 
@@ -57,6 +60,7 @@ class Solution:
 
     def isPalindromeTooEasy(self, x):
         return int(str(abs(x))[::-1]) == x
+
 
 class TestSolution(unittest.TestCase):
 
