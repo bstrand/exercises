@@ -7,8 +7,9 @@ class Solution:
     def countAndSay(self, n):
         if n == 1:
             return "1"
+
         i = 1
-        for x in range(1,n):
+        for x in range(n-1):
             i = self.say_num_of(i)
         return str(i)
 
@@ -32,6 +33,14 @@ class Solution:
         # print "%d -> %d" % (n, result)
         return result
 
+def countAndSayConcise(self, n):
+    res = '1'
+    for i in range(n-1):
+        stack = []
+        for (k, g) in itertools.groupby(res):
+            stack.append(str(len(list(g)))+k)
+        res = ''.join(stack)
+    return res
 
 class TestSolution(unittest.TestCase):
     def test_01(self):
